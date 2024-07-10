@@ -1,0 +1,26 @@
+Project Steps : 
+1.  Get computer choice:
+    create function named getComputerChoice = > will return "rock" or "paper" or "scissors"
+    test the function in console.log
+
+2. Get human choice
+    Create function getHumanChoice => will return on of valid choices depending on user inputs
+    use prompt method
+    test the function
+
+3. Declare the players score variables
+    Create twe new variables named humanScore and computerScore
+    Initialize them to 0
+
+4. Write the logic to play a single round
+    Create a new function named playRound
+    Define two parameters (humanChoice and computerChoice)
+    Make humanChoice function case-insensitive
+    playRound must console.log the winner. Example : "You lose! Paper beats Rock"
+    Increments the humanScore or computerScore based on the round winner 
+
+5. Write the logic to play the entire game of 5 rounds.
+    Write function playGame that calls playRound to play 5 rounds, keeps track of the scores and declares a winner at the end
+    Create new function playGame
+    Move playRound function and score variables so that they're declared inside of playGame function
+    Play 5 rounds by calling playRound 5 times

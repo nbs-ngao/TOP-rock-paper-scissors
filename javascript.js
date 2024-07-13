@@ -1,4 +1,42 @@
+// A : UI
 
+const btnSelectRock = document.createElement("button");
+const btnSelectPaper = document.createElement("button");
+const btnSelectScissors = document.createElement("button");
+
+btnSelectRock.textContent = "Rock";
+btnSelectPaper.textContent = "Paper";
+btnSelectScissors.textContent = "Scissors";
+bod = document.querySelector("body");
+
+bod.appendChild(btnSelectRock);
+bod.appendChild(btnSelectPaper);
+bod.appendChild(btnSelectScissors);
+
+const divDisplay = document.createElement("div");
+const paraResult = document.createElement("p"); 
+divDisplay.appendChild(paraResult);
+bod.appendChild(divDisplay);
+
+btnSelectRock.addEventListener("click", function() {
+    let result = playRound("rock", getComputerChoice());
+    paraResult.textContent = result;
+
+});
+
+btnSelectPaper.addEventListener("click", function() {
+    let result = playRound("paper", getComputerChoice());
+    paraResult.textContent = result;
+});
+
+btnSelectScissors.addEventListener("click", function() {
+    let result = playRound("scissors", getComputerChoice());
+    paraResult.textContent = result;
+});
+
+
+
+// B : Logic
 // Step 2 : Write the logic to get the computer choice
 function getComputerChoice() {
     let choice = "";
@@ -36,9 +74,9 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice) {
     let result = "";
     if (humanChoice == computerChoice) {
-        result = "It's a tie !";
-        console.log(result);
-        return;
+        result = `It's a tie ! Both choose ${humanChoice}`;
+        // console.log(result);
+        return result;
 
     }
 
@@ -46,14 +84,14 @@ function playRound(humanChoice, computerChoice) {
         if(computerChoice == 'paper') {
             result = `You lose ! ${computerChoice} beats ${humanChoice}`;
             computerScore++;
-            console.log(result);
-            return;
+            // console.log(result);
+            return result;
         }
         else {
             result = `You Win ! ${humanChoice} beats ${computerChoice}`;
             humanScore++;
-            console.log(result);
-            return;
+            // console.log(result);
+            return result;
         }
     }
 
@@ -61,14 +99,14 @@ function playRound(humanChoice, computerChoice) {
         if(computerChoice == 'scissors') {
             result = `You lose ! ${computerChoice} beats ${humanChoice}`;
             computerScore++;
-            console.log(result);
-            return;
+            // console.log(result);
+            return result;
         }
         else {
             result = `You Win ! ${humanChoice} beats ${computerChoice}`;
             humanScore++;
-            console.log(result);
-            return;
+            // console.log(result);
+            return result;
         }
     }
 
@@ -76,14 +114,14 @@ function playRound(humanChoice, computerChoice) {
         if(computerChoice == 'rock') {
             result = `You lose ! ${computerChoice} beats ${humanChoice}`;
             computerScore++;
-            console.log(result);
-            return;
+            // console.log(result);
+            return result; 
         }
         else {
             result = `You Win ! ${humanChoice} beats ${computerChoice}`;
             humanScore++;
-            console.log(result);
-            return;
+            // console.log(result);
+            return result;
         }
     }
 
@@ -92,7 +130,7 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-// Step 6: Write the logice to play entire game
+// Step 6: Write the logic to play entire game
 function playGame() {
     // Round 1
     let humanSelection = getHumanChoice();

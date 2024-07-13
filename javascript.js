@@ -14,24 +14,52 @@ bod.appendChild(btnSelectPaper);
 bod.appendChild(btnSelectScissors);
 
 const divDisplay = document.createElement("div");
-const paraResult = document.createElement("p"); 
+const paraResult = document.createElement("p");
+const paraScore = document.createElement("p");
+const paraWinner = document.createElement("p");
+
 divDisplay.appendChild(paraResult);
+divDisplay.appendChild(paraScore);
+divDisplay.appendChild(paraWinner);
+
 bod.appendChild(divDisplay);
 
 btnSelectRock.addEventListener("click", function() {
     let result = playRound("rock", getComputerChoice());
     paraResult.textContent = result;
+    paraScore.textContent = `HumanScore = ${humanScore} / ComputerScore = ${computerScore}`;
+    if(humanScore == 5) {
+        paraWinner.textContent = `You Win`;
+    }
+    if(computerScore == 5) {
+        paraWinner.textContent = `Computer Win`;
+    }
+
 
 });
 
 btnSelectPaper.addEventListener("click", function() {
     let result = playRound("paper", getComputerChoice());
     paraResult.textContent = result;
+    paraScore.textContent = `HumanScore = ${humanScore} / ComputerScore = ${computerScore}`;
+    if(humanScore == 5) {
+        paraWinner.textContent = `You Win`;
+    }
+    if(computerScore == 5) {
+        paraWinner.textContent = `Computer Win`;
+    }
 });
 
 btnSelectScissors.addEventListener("click", function() {
     let result = playRound("scissors", getComputerChoice());
     paraResult.textContent = result;
+    paraScore.textContent = `HumanScore = ${humanScore} / ComputerScore = ${computerScore}`;
+    if(humanScore == 5) {
+        paraWinner.textContent = `You Win`;
+    }
+    if(computerScore == 5) {
+        paraWinner.textContent = `Computer Win`;
+    }
 });
 
 
@@ -72,6 +100,11 @@ let computerScore = 0;
 
 // Step 5 : Write the logic to play single round
 function playRound(humanChoice, computerChoice) {
+    if (humanScore == 5 || computerScore == 5){
+        humanScore = 0;
+        computerScore = 0;
+        paraWinner.textContent = '';
+    }
     let result = "";
     if (humanChoice == computerChoice) {
         result = `It's a tie ! Both choose ${humanChoice}`;
